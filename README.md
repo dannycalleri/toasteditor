@@ -11,7 +11,7 @@ a specific XML format.
 This project has been created by me ([Danny Calleri](http//www.twitter.com/dannycalleri)) as
 the perfect companion for [Toast Framework](https://github.com/dannycalleri/toast), a simple C++ 2D game framework.
 
-* Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
+* Source: [https://github.com/dannycalleri/toasteditor](https://github.com/dannycalleri/toasteditor)
 * Homepage: [http://toastedware.com](http://toastedware.com)
 * Twitter: [@dannycalleri](http//www.twitter.com/dannycalleri)
 
@@ -20,11 +20,10 @@ the perfect companion for [Toast Framework](https://github.com/dannycalleri/toas
 
 Choose one of the following options:
 
-1. Download the latest stable release from
-   [toastedware.com](http://toastedware.com/) or a custom build from
-   [Initializr](http://www.initializr.com).
+1. Check out the latest stable release from
+   [toastedware.com](http://toastedware.com/).
 2. Clone the git repo — `git clone
-   https://github.com/h5bp/html5-boilerplate.git` - and checkout the tagged
+   https://github.com/dannycalleri/toasteditor.git` - and checkout the tagged
    release you'd like to use.
 
 
