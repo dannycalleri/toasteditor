@@ -29,6 +29,97 @@ var isEraserSelected=false;
 // array that stores the current level
 var levelTiles = [];
 
+function printOgmoProject()
+{
+	var string = "";
+
+	string += "<?xml version=\"1.0\"?>\n";
+	string += "<project xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n";
+	string += "<OgmoVersion>2.1.0.6</OgmoVersion>\n";
+	string += "<Name>New Project</Name>\n";
+	string += "<BackgroundColor A=\"255\" R=\"125\" G=\"160\" B=\"255\" />\n";
+	string += "<GridColor A=\"255\" R=\"255\" G=\"240\" B=\"90\" />\n";
+	string += "<LevelDefaultSize>\n";
+	string += "<Width>"+ levelTiles[0].length * tileW +"</Width>\n";
+	string += "<Height>"+ levelTiles.length * tileH +"</Height>\n";
+	string += "</LevelDefaultSize>\n";
+	string += "<LevelMinimumSize>\n";
+	string += "<Width>"+ levelTiles[0].length * tileW +"</Width>\n";
+	string += "<Height>"+ levelTiles.length * tileH +"</Height>\n";
+	string += "</LevelMinimumSize>\n";
+	string += "<LevelMaximumSize>\n";
+	string += "<Width>"+ levelTiles[0].length * tileW +"</Width>\n";
+	string += "<Height>"+ levelTiles.length * tileH +"</Height>\n";
+	string += "</LevelMaximumSize>\n";
+	string += "<Filename>project.oep</Filename>\n";
+	string += "<AngleMode>Radians</AngleMode>\n";
+	string += "<CameraEnabled>false</CameraEnabled>\n";
+	string += "<CameraSize>\n";
+	string += "<Width>"+ levelTiles[0].length * tileW +"</Width>\n";
+	string += "<Height>"+ levelTiles.length * tileH +"</Height>\n";
+	string += "</CameraSize>\n";
+	string += "<ExportCameraPosition>false</ExportCameraPosition>\n";
+	string += "<LevelValueDefinitions />\n";
+	string += "<LayerDefinitions>\n";
+	string += "<LayerDefinition xsi:type=\"TileLayerDefinition\">\n";
+	string += "<Name>Tiles</Name>\n";
+	string += "<Grid>\n";
+	string += "<Width>"+ tileW +"</Width>\n";
+	string += "<Height>"+ tileH +"</Height>\n";
+	string += "</Grid>\n";
+	string += "<ScrollFactor>\n";
+	string += "<X>1</X>\n";
+	string += "<Y>1</Y>\n";
+	string += "</ScrollFactor>\n";
+	string += "<ExportMode>CSV</ExportMode>\n";
+	string += "</LayerDefinition>\n";
+	string += "</LayerDefinitions>\n";
+	string += "<Tilesets>\n";
+	string += "<Tileset>\n";
+	string += "<Name>Tileset</Name>\n";
+	string += "<FilePath>"+tilesetFileName+"</FilePath>\n";
+	string += "<TileSize>\n";
+	string += "<Width>"+ tileW +"</Width>\n";
+	string += "<Height>"+ tileH +"</Height>\n";
+	string += "</TileSize>\n";
+	string += "<TileSep>0</TileSep>\n";
+	string += "</Tileset>\n";
+	string += "</Tilesets>\n";
+	string += "<EntityDefinitions />\n";
+	string += "</project>\n";
+
+	return string;
+}
+
+function printOgmoLevel()
+{
+	var string = "";
+
+	string += "<level width=\""+ levelTiles[0].length * tileW +"\" height=\""+ levelTiles.length * tileH +"\">\n";
+	string += "<Tiles tileset=\"Tileset\" exportMode=\"CSV\">";
+
+	for(var i=0; i < levelTiles.length; i++)
+	{
+		//string += "[";
+
+		for(var j=0; j < levelTiles[i].length; j++)
+		{
+			string += levelTiles[i][j];
+
+			if(j < levelTiles[i].length - 1)
+				string += ", ";
+		}
+
+		if(i < levelTiles.length - 1)
+			string += "\n";
+	}
+
+	string += "</Tiles>\n";
+	string += "</level>\n";
+
+	return string;
+}
+
 function printLevelCpp()
 {
 	var string = "";
@@ -122,7 +213,7 @@ function printLevelToast()
 
 	string += "; \n\n";
 
-	string += "Tilemap* tilemap = new Tilemap(YOUR_TEXTURE_HERE, "+
+	string += "Tilemap* tilemap = new Tilemap(\""+tilesetFileName+"\", "+
 				levelTiles[0].length * tileW + ", " + 
 				levelTiles.length * tileH + ", " + tileW+", "+tileH+");" + "\n";
 
@@ -153,7 +244,7 @@ function printLevelFlashPunk()
 
 	string += "]]> ).toString(); \n\n";
 
-	string += "var tilemap:Tilemap = (YOUR_TEXTURE_HERE, "+
+	string += "var tilemap:Tilemap = (\""+tilesetFileName+"\", "+
 				levelTiles[0].length * tileW + ", " + 
 				levelTiles.length * tileH + ", " + tileW+", "+tileH+");" + "\n\n";
 

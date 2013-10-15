@@ -151,12 +151,41 @@ $('#language-select').change(function() {
 var languageChanged = function(language) {
 
     if(language === "cpp")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
         $('#export-text-area').val(printLevelCpp());
+    }
     else if(language === "as3")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
         $('#export-text-area').val(printLevelAS3());
+    }
     else if(language === "flashpunk")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
         $('#export-text-area').val(printLevelFlashPunk());
+    }
     else if(language === "toast")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
         $('#export-text-area').val(printLevelToast());
+    }
+    else if(language === "ogmo")
+    {
+        $('#export-text-area').hide();
+        $('#ogmo-project-export').show();
+        $('#ogmo-level-export').show();
+
+        $('#ogmo-project-area').val(printOgmoProject());
+        $('#ogmo-level-area').val(printOgmoLevel());
+    }
 };
 

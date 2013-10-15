@@ -3,6 +3,7 @@
 // URL = http://www.htmlgoodies.com/html5/javascript/drag-files-into-the-browser-from-the-desktop-HTML5.html
 
 var tilesetLoaded = false;
+var tilesetFileName = "";
 
 if(window.FileReader)
 {
@@ -44,6 +45,7 @@ if(window.FileReader)
                     var bin           = this.result; 
                     var newFile       = document.createElement('div');
                     newFile.innerHTML = 'Loaded : '+file.name+' size '+file.size+' B';
+                    tilesetFileName = file.name;
 
                     list.appendChild(newFile);  
                     

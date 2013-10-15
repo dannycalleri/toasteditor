@@ -1,12 +1,14 @@
 # [Toast Editor](http://toastedware.com)
 
 Toast Editor is a fast web-based HTML5 level editor that exports your
-creations for multiple languages and game frameworks including FlashPunk, Toast, C++ and AS3.
+creations for multiple languages, game frameworks and editors including FlashPunk, Toast, C++, AS3 and Ogmo Editor. 
 
 
-It's the best choice for fast prototyping or during game jams: it exports
+It's a great choice for fast prototyping or during game jams: it exports
 your creation directly in your favorite API, without your code even knowing about
 a specific XML format.
+Then, if you need it, you can further customize your level with Ogmo Editor using the simple
+export feature.
 
 This project has been created by me ([Danny Calleri](http//www.twitter.com/dannycalleri)) as
 the perfect companion for [Toast Framework](https://github.com/dannycalleri/toast), a simple C++ 2D game framework.
@@ -34,6 +36,7 @@ Choose one of the following options:
 * Retractable and draggable widgets to help you focus on your creation.
 * Exports ready-to-use code for FlashPunk and Toast frameworks.
 * Exports generic array level maps for C++ or AS3.
+* Exports project and level files for Ogmo Editor to further customize your levels.
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) guarantees 
   cross-browser compatibility.
 * The latest [jQuery](http://jquery.com/) version available thanks to 

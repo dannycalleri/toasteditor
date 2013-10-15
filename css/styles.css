@@ -38,6 +38,11 @@ nav ul li a
     text-decoration: none;
 }
 
+h2
+{
+    font-size: 16px;
+}
+
 #new-button,
 #export-button
 {
@@ -373,7 +378,9 @@ input::-webkit-inner-spin-button {
     padding: 10px;
 }
 
-#export-text-area
+#export-text-area,
+#ogmo-project-area, 
+#ogmo-level-area 
 {
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
@@ -421,7 +428,17 @@ input::-webkit-inner-spin-button {
 #eraser { background-image: url(../img/eraser-sprite.png); background-position: 0px -55px; }
 #eraser.inactive { background-position: 0px 0px; }
 
+#ogmo-project-area,
+#ogmo-level-area
+{
+    height: 150px;
+}
 
+#ogmo-project-export, 
+#ogmo-level-export 
+{
+    display: none;
+}
 
 
 
