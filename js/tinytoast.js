@@ -12,6 +12,7 @@ var tileW = 0;
 var tileH = 0;
 var tilesetArray = [];
 var editorTilesPerRow = 8;
+var emptyChar = 0;
 
 /* 
 	bool to check if currently selected tile is transparent:
@@ -227,24 +228,26 @@ function printLevelFlashPunk()
 {
 	var string = "";
 
-	string += "var level:String = ( <![CDATA[";
+	string += "var level:String = ";
 	for(var i=0; i < levelTiles.length; i++)
 	{
+		string += "\"";
+		
 		for(var j=0; j < levelTiles[i].length; j++)
 		{
 			string += levelTiles[i][j];
 
 			if(j < levelTiles[i].length - 1)
-				string += ", ";
+				string += ",";
 		}
 
 		if(i < levelTiles.length - 1)
-			string += "\n";
+			string += "\\n\"+\n";
 	}
 
-	string += "]]> ).toString(); \n\n";
+	string += "\"\n\n";
 
-	string += "var tilemap:Tilemap = (\""+tilesetFileName+"\", "+
+	string += "var tilemap:Tilemap = new Tilemap(\""+tilesetFileName+"\", "+
 				levelTiles[0].length * tileW + ", " + 
 				levelTiles.length * tileH + ", " + tileW+", "+tileH+");" + "\n\n";
 
@@ -427,7 +430,7 @@ function MapCanvas(cols, rows, tileWidth, tileHeight)
 		}
 		else
 		{
-			levelTiles[row][col] = 0;
+			levelTiles[row][col] = emptyChar;
 		}
 
 		/*
@@ -457,7 +460,7 @@ function MapCanvas(cols, rows, tileWidth, tileHeight)
 		{
 			for(var j=0; j < cols; j++)
 			{
-				levelTiles[i][j] = 0;
+				levelTiles[i][j] = emptyChar;
 			}
 		}
 	}
