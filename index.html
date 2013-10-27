@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Toast Editor</title>
+        <meta name="description" content="">
+        <!--<meta name="viewport" content="width=device-width">-->
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="js/selectbox/jquery.selectBox.css" rel="stylesheet" type="text/css" />
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+            <a href="#">
+                <div id="logo">
+                </div>
+            </a>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a id="new-button" href="index.html">
+                            <!--<img src="img/new-button.png">-->
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="export-button" href="#">
+                            <!--<img src="img/export-button.png">-->
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="tileset-container"></div>
+
+        <div id="map-container">
+            <canvas id="mapCanvas" width="640" height="480"></canvas>
+        </div>
+
+        <div id="tileset-widget" class="window">
+
+            <div id="eraser-selected-balloon"></div>
+
+            <div class="window-left-toast"></div>
+
+            <div class="window-center-col clearfix">
+
+                <div class="window-header">
+                    
+                    <div class="window-header-button" id="tileset-widget-button">
+                    </div>
+                    
+                </div>
+
+                <div class="mouth open"></div>
+
+                <div class="window-container">
+                    <canvas id="tilesCanvas" width="200" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="window-right-toast"></div>
+        </div>
+
+        <div id="data-widget" class="window">
+            <div class="window-left-toast"></div>
+
+            <div id="data-widget-center-col" class="window-center-col clearfix">
+
+                <div class="window-header">
+                    
+                    <div class="window-header-button" id="data-widget-button">
+                    </div>
+                    
+                </div>
+
+                <div class="mouth open"></div>
+
+                <div id="data-widget-container" class="window-container">
+                    <div id="form-container">
+                        <form id="data-form">
+                            <div>
+                                <label>
+                                    <input id="columns" name="columns" type="number" placeholder="Columns (e.g. 20)" required>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input id="rows" name="rows" type="number" placeholder="Rows (e.g. 15)" required>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input id="tiles-width" name="tiles-width" type="number" placeholder="Tiles Width (e.g. 32)" required>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input id="tiles-height" name="tiles-height" type="number" placeholder="Tiles Height (e.g. 32)" required>
+                                </label>
+                            </div>
+
+                            <div>
+                                <div id="status">Drag the tileset file from your folder.</div>
+                                <div id="list"></div>
+                                <div id="drop">Drop the file here!</div>
+                            </div>
+
+                            <input id="generate-button" type="submit" value="">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window-right-toast"></div>
+        </div>
+
+        <div id="tools-widget">
+            <div id="tools-container">
+                <div class="tool" id="pencil"></div>
+                <div class="tool" id="eraser"></div>
+            </div>
+        </div>
+
+        <div id="export-widget">
+
+            <div id="export-container">
+                <select id="language-select" name="type">
+                    <option value="flashpunk">FlashPunk</option>
+                    <option value="toast">Toast</option>
+                    <option value="cpp">C++</option>
+                    <option value="as3">AS3</option>
+                    <option value="ogmo">Ogmo</option>
+                </select>
+
+                <div>
+                    <textarea id="export-text-area">code</textarea>
+
+                    <div id="ogmo-project-export">
+                        <h2>Project file (.oep)</h2>
+                        <textarea id="ogmo-project-area">code</textarea>
+                    </div>
+
+                    <div id="ogmo-level-export">
+                        <h2>Level file (.oel)</h2>
+                        <textarea id="ogmo-level-area">code</textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+		
+		<script src="js/vendor/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="js/jquery.validate.js" type="text/javascript"></script>
+        <script src="js/selectbox/jquery.selectBox.min.js" type="text/javascript"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/dragdroploader.js"></script>
+        <script src="js/toasteditor.js"></script>
+        <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+
+            var mapCreated = false;
+
+            // 
+            $('#data-form').submit(function() {
+
+                if($('#data-form').valid() && !tilesetLoaded)
+                {
+                    alert("You must load a tileset to create a level!");
+                }
+
+                if($('#data-form').valid() && tilesetLoaded)
+                {
+                    mapCreated=true;
+
+                    $('#map-container').show();
+                    $('#tileset-widget').show();
+                    $('#tools-widget').show();
+
+                    var tilesWidth = $('#tiles-width').val();
+                    var tilesHeight = $('#tiles-height').val();
+                    var rows = $('#rows').val();
+                    var columns = $('#columns').val();
+                    
+                    console.log("TILES WIDTH = "+tilesWidth);
+                    console.log("TILES HEIGHT = "+tilesHeight);
+                    console.log("ROWS = "+rows);
+                    console.log("COLUMNS = "+columns);
+
+                    $('#data-widget').hide();
+                    $('#new-button').removeClass("disabled");
+                    $('#export-button').removeClass("disabled");
+
+                    var tilesetPath = $('#tileset').attr("src");
+                    console.log("TILESET PATH = "+tilesetPath);
+
+                    var mapCanvas = new MapCanvas(columns, rows, tilesWidth, tilesHeight);
+                    var tilesCanvas = new TilesCanvas();
+
+                    setupWindows();
+                    $('#tools-widget').draggable();
+
+                    $('#map-container').center();
+
+                    // make sure that the map doesn't go below the header
+                    if($('#map-container').offset().top < 52)
+                    {
+                        console.log("moving map container below header");
+                        $('#map-container').css('top', '72px');
+                    }
+                }
+
+                // !!! Important !!! 
+                // always return false to prevent standard browser submit and page navigation 
+                return false;
+            });
+
+            $('#new-button').click(function(e){
+
+                if(!mapCreated)
+                {
+                    // prevent link to be clicked
+                    e.preventDefault();
+                }
+            });
+
+            $('#export-button').click(function(e){
+
+                if(!mapCreated)
+                {
+                    // prevent link to be clicked
+                    e.preventDefault();
+                }
+                else
+                {
+                    $('#export-widget').toggle();
+                    languageChanged($("#language-select").val());
+                }
+            });
+
+        </script>
+    </body>
+</html>

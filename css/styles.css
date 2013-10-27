@@ -1,0 +1,465 @@
+
+html
+{
+    background-image: url(../img/pattern.png);
+}
+
+header
+{
+    background-color: #837454;
+    height: 52px;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+}
+
+nav
+{
+    float:right;
+}
+
+nav ul
+{
+    margin:0;
+    padding: 0;
+    margin-right: 10px;
+}
+
+nav ul li
+{
+    display: inline;
+    list-style: none;
+    margin-left: 10px;
+    line-height: 52px;
+}
+
+nav ul li a
+{
+    text-decoration: none;
+}
+
+h2
+{
+    font-size: 16px;
+}
+
+#new-button,
+#export-button
+{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+#new-button
+{
+    background-image: url(../img/new-sprite.png);
+    width: 144px;
+    height: 40px;
+}
+
+#new-button:hover
+{
+    background-position: 0px -40px;
+}
+
+#export-button
+{
+    background-image: url(../img/export-sprite.png);
+    width: 144px;
+    height: 40px;
+}
+
+#export-button:hover
+{
+    background-position: 0px -40px;
+}
+
+#new-button.disabled,
+#export-button.disabled
+{
+    background-position: 0px -40px;
+    cursor: default;
+}
+
+/***********
+    FORMS
+************/
+
+#form-container
+{
+    margin-top: 20px;
+}
+
+input { outline: none; }
+
+input.error
+{
+    background-color: rgb(168,97,79);
+}
+
+input
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    width: 222px;
+    height: 30px;
+}
+
+input[type=submit]
+{
+    width: 229px;
+    margin-top: 10px;
+}
+
+input[type=number]
+{
+    margin-bottom: 5px;
+    border: 2px solid #000;
+}
+
+textarea
+{
+    border: 2px solid #000;
+    outline: none;
+}
+
+/*number input*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#generate-button
+{
+    background:none;
+    border:0;
+    background-image: url(../img/generate-button.png);
+    width: 224px;
+    height: 40px;
+    margin-left: 2px;
+}
+
+.container
+{
+    position: relative;
+}
+
+#logo
+{
+    background-image: url(../img/logo-header.png);
+    width: 300px;
+    height: 52px;
+    float:left;
+}
+
+#logo:hover
+{
+    background-position: 0px -52px;
+}
+
+#mapCanvas
+{
+    /*float: left;*/
+    /*text-align: center;*/
+}
+
+#tileset
+{
+    display: none;
+}
+
+#map-container
+{
+    /*margin-top: 52px;*/
+    text-align: center;
+}
+
+
+/*********************
+*
+*   Windows framework
+*
+**********************/
+.window
+{
+    position: fixed;
+}
+
+.window-center-col
+{
+    background-color: rgb(223,190,149);
+    height: 496px;
+    float: left;
+    border-bottom: 4px solid rgb(98, 30, 30);
+}
+
+.window-center-col.closed
+{
+    height: 100px;
+}
+
+.window-container
+{
+    height: 390px;
+    overflow-y: scroll;
+    text-align: center;
+    margin-top: 10px;
+    /*border: 1px solid rgb(168, 97, 79);*/
+}
+
+.window-left-toast
+{
+    background-image: url(../img/toast-tileset.png);
+    width: 20px;
+    height: 500px;
+    float: left;
+}
+
+.window-left-toast.closed
+{
+    background-image: url(../img/toast-tileset-closed.png);
+    width: 20px;
+    height: 104px;
+}
+
+.window-right-toast
+{
+    background-image: url(../img/toast-tileset.png);
+    background-position: -20px 0px;
+    width: 20px;
+    height: 500px;
+    float: left;
+}
+
+.window-right-toast.closed
+{
+    background-image: url(../img/toast-tileset-closed.png);
+    background-position: -20px 0px;
+    width: 20px;
+    height: 104px;
+}
+
+.mouth
+{
+    background-image: url(../img/toast-tileset-mouth.png);
+    width: 84px;
+    height: 24px;
+    margin:auto;
+    margin-top: 10px;
+}
+
+.mouth.open
+{
+    background-position: 0px 0px;
+}
+
+.mouth.closed
+{
+    background-position: 0px -24px;
+    margin-top: 20px;
+}
+
+#tileset-widget
+{
+    top: 100px;
+    right: 50px;
+    /*position: relative;*/
+}
+
+
+#eraser-selected-balloon
+{
+    background-image: url(../img/eraser-selected.png);
+    width: 134px;
+    height: 66px;
+    position:absolute;
+    top:60px;
+    left:0px;
+    display: none;
+}
+
+
+#data-widget
+{
+    top: 100px;
+    left: 50px;
+}
+
+.window-header
+{
+    background-color: rgb(121, 37, 37);
+    height: 36px;
+    border-bottom: 4px solid rgb(168, 97, 79);
+    padding-top: 8px;
+}
+
+#tileset-widget-button
+{
+    background-image: url(../img/tileset-button.png);
+    width: 120px;
+    height: 32px;
+    cursor: pointer;
+}
+
+#tileset-widget-button:hover
+{
+    background-position: 0px -32px;
+}
+
+#data-widget-button
+{
+    background-image: url(../img/info-button.png);
+    width: 72px;
+    height: 32px;
+    cursor: pointer;
+}
+
+#data-widget-button:hover
+{
+    background-position: 0px -32px;
+}
+
+#tilesCanvas
+{
+    border: 4px solid rgb(168, 97, 79);
+}
+
+#form-container
+{
+    text-align: left;
+}
+
+#drop 
+{
+    background-image: url(../img/pattern.png);
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    min-height: 100px;
+    width: 205px;
+    border: 2px dashed #000;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#status, 
+#list, 
+#drop
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#drop
+{
+    font-size: 14px;
+}
+
+#export-widget
+{
+    /*
+    background-color: #837454;
+    border: 4px solid #fff;
+    */
+
+    background-color: rgb(223, 190, 149);
+    border: 10px solid rgb(98,30,30);
+    width: 500px;
+    height: 500px;
+    position: fixed;
+}
+
+#export-container
+{
+    border: 4px solid rgb(168,97,79);
+    height: 472px;
+    padding: 10px;
+}
+
+#export-text-area,
+#ogmo-project-area, 
+#ogmo-level-area 
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 463px;
+    height: 300px;
+}
+
+#tools-widget
+{
+    background-color: rgb(223, 190, 149);
+    border: 10px solid rgb(98,30,30);
+    position: fixed;
+    top: 100px;
+    left: 50px;
+}
+
+#tools-container
+{
+    border: 4px solid rgb(168,97,79);
+}
+
+.tool
+{
+    width: 55px;
+    height: 55px;
+}
+
+.tool.selected
+{
+    /*border: 3px solid #ffff00;*/
+}
+
+/*.tool.inactive { margin-left: 3px; }*/
+
+#pencil 
+{ 
+    background-image: url(../img/pencil-sprite.png); 
+    background-position: 0px -55px; 
+    border-bottom: 2px solid rgb(168,97,79);
+}
+
+#pencil.inactive { background-position: 0px 0px; }
+
+#eraser { background-image: url(../img/eraser-sprite.png); background-position: 0px -55px; }
+#eraser.inactive { background-position: 0px 0px; }
+
+#ogmo-project-area,
+#ogmo-level-area
+{
+    height: 150px;
+}
+
+#ogmo-project-export, 
+#ogmo-level-export 
+{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

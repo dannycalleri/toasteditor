@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Danny Calleri -- Programmer -- twitter.com/dannycalleri
+
+# THANKS
+
+    Giuseppe Navarria
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Javascript, jQuery
