@@ -512,68 +512,11 @@ function TilesCanvas()
 	//drawTileset();
 
 	var img = document.getElementById("tileset");
-	//img.crossOrigin="";
-	/*
-	var src = "img/tileset.png";
-	img.crossOrigin = "Anonymous";
-	img.onload = function() {
-	    canvas.width = img.width;
-	    canvas.height = img.height;
-
-	    if(canvas.getContext)
-	    {
-	    	var ctx = canvas.getContext("2d");
-	    	ctx.drawImage( img, 0, 0 );
-		}
-
-	    localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
-	}
-	img.src = src;
-	// make sure the load event fires for cached images too
-	if ( img.complete || img.complete === undefined ) {
-	    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-	    img.src = src;
-	}
-	*/
 
 	// read the entire tileset, create Tile objects and save them in an array
 	readTileset();
 	// draw Tile objects in a the canvas one by one
 	drawTileset();
-
-	// create the algorithm for 
-
-	// SCALE CANVAS
-	/*
-	if(canvas.getContext)
-	{
-		// scale y component
-	    //ctx.scale(0.5, 0.5);
-	}
-	*/
-
-	/*
-	var testimg = new Image,
-	    imgCanvas = document.createElement("canvas"),
-	    ctx = imgCanvas.getContext("2d"),
-	    src = "../img/tileset.png"; // insert image url here
-
-	testimg.crossOrigin = "Anonymous";
-
-	testimg.onload = function() {
-	    imgCanvas.width = testimg.width;
-	    imgCanvas.height = testimg.height;
-	    ctx.drawImage( testimg, 0, 0 );
-	    localStorage.setItem( "savedImageData", imgCanvas.toDataURL("image/png") );
-	}
-	testimg.src = src;
-	// make sure the load event fires for cached images too
-	if ( testimg.complete || testimg.complete === undefined ) 
-	{
-	    testimg.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-	    testimg.src = src;
-	}
-	*/
 	
 	canvas.addEventListener('click', function(evt) {
 
@@ -675,7 +618,8 @@ function TilesCanvas()
 		}
 
 		canvas.width = editorTilesPerRow * tileW;
-		canvas.height = Math.floor(tilesetArray.length / editorTilesPerRow) * tileH;
+		canvas.height = parseInt(tileH) + parseInt(Math.floor(tilesetArray.length / editorTilesPerRow) * tileH);
+		
 		clearCanvasTransparent(canvas);
 
 		// reset previous style
@@ -685,6 +629,8 @@ function TilesCanvas()
 
 	function drawTileset()
 	{
+		console.log("Draw tileset function ");
+		
 		// draw Tile objects in a the canvas one by one
 		for(var i=0; i < tilesetArray.length; i++)
 		{
@@ -697,6 +643,7 @@ function TilesCanvas()
 
 			if(canvas.getContext) 
 			{
+				console.log("Draw tile "+i);
 				var ctx = canvas.getContext("2d");
 				var img = document.getElementById("tileset");
 				ctx.drawImage(img, point.x * tileW, point.y * tileH, tileW, tileH, destCol * tileW, destRow * tileH, tileW, tileH);
