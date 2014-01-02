@@ -277,6 +277,32 @@ function printLevelCSV()
 	return string;
 }
 
+function printLevelPhaser()
+{
+	var string = "";
+
+	for(var i=0; i < levelTiles.length; i++)
+	{
+		for(var j=0; j < levelTiles[i].length; j++)
+		{
+			var tile = parseInt(levelTiles[i][j]);
+
+			if(tile != 0)
+				string += String(tile+1);
+			else
+				string += String(tile);
+
+			if(j < levelTiles[i].length - 1)
+				string += ",";
+		}
+
+		if(i < levelTiles.length - 1)
+			string += "\n";
+	}
+
+	return string;
+}
+
 // little Point class helper
 function Point(x, y)
 {

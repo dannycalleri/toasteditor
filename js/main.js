@@ -195,5 +195,13 @@ var languageChanged = function(language) {
 
         $('#export-text-area').val(printLevelCSV());
     }
+    else if(language === "phaser")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
+
+        $('#export-text-area').val(printLevelPhaser());
+    }
 };
 
