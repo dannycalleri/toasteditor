@@ -187,5 +187,13 @@ var languageChanged = function(language) {
         $('#ogmo-project-area').val(printOgmoProject());
         $('#ogmo-level-area').val(printOgmoLevel());
     }
+    else if(language === "csv")
+    {
+        $('#export-text-area').show();
+        $('#ogmo-project-export').hide();
+        $('#ogmo-level-export').hide();
+
+        $('#export-text-area').val(printLevelCSV());
+    }
 };
 

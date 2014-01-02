@@ -256,6 +256,27 @@ function printLevelFlashPunk()
 	return string;
 }
 
+function printLevelCSV()
+{
+	var string = "";
+
+	for(var i=0; i < levelTiles.length; i++)
+	{
+		for(var j=0; j < levelTiles[i].length; j++)
+		{
+			string += levelTiles[i][j];
+
+			if(j < levelTiles[i].length - 1)
+				string += ",";
+		}
+
+		if(i < levelTiles.length - 1)
+			string += "\n";
+	}
+
+	return string;
+}
+
 // little Point class helper
 function Point(x, y)
 {
