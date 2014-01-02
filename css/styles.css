@@ -309,6 +309,11 @@ input::-webkit-inner-spin-button {
     background-position: 0px -32px;
 }
 
+#data-widget-container 
+{
+    overflow: hidden;
+}
+
 #data-widget-button
 {
     background-image: url(../img/info-button.png);
@@ -350,6 +355,11 @@ input::-webkit-inner-spin-button {
 {
     font-size: 12px;
     font-weight: bold;
+}
+
+#status
+{
+    display: none;
 }
 
 #drop
